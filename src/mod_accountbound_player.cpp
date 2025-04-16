@@ -1,6 +1,6 @@
 #include "mod_accountbound.h"
 
-void AccountBound::OnAchiComplete(Player* player, AchievementEntry const* achievement)
+void AccountBound::OnPlayerAchievementComplete(Player* player, AchievementEntry const* achievement)
 {
     if (player->IsGameMaster() && !EnableGamemasters)
     {
@@ -16,7 +16,7 @@ void AccountBound::OnAchiComplete(Player* player, AchievementEntry const* achiev
     }
 }
 
-void AccountBound::OnAfterStoreOrEquipNewItem(Player* player, uint32 /*vendorslot*/, Item* item, uint8 /*count*/, uint8 /*bag*/, uint8 /*slot*/, ItemTemplate const* /*pProto*/, Creature* /*pVendor*/, VendorItem const* /*crItem*/, bool /*bStore*/)
+void AccountBound::OnPlayerAfterStoreOrEquipNewItem(Player* player, uint32 /*vendorslot*/, Item* item, uint8 /*count*/, uint8 /*bag*/, uint8 /*slot*/, ItemTemplate const* /*pProto*/, Creature* /*pVendor*/, VendorItem const* /*crItem*/, bool /*bStore*/)
 {
     if (player->IsGameMaster() && !EnableGamemasters)
     {
@@ -39,7 +39,7 @@ void AccountBound::OnAfterStoreOrEquipNewItem(Player* player, uint32 /*vendorslo
     }
 }
 
-void AccountBound::OnLevelChanged(Player* player, uint8 /*oldlevel*/)
+void AccountBound::OnPlayerLevelChanged(Player* player, uint8 /*oldlevel*/)
 {
     if (player->IsGameMaster() && !EnableGamemasters)
     {
@@ -52,7 +52,7 @@ void AccountBound::OnLevelChanged(Player* player, uint8 /*oldlevel*/)
     }
 }
 
-void AccountBound::OnLogin(Player* player)
+void AccountBound::OnPlayerLogin(Player* player)
 {
     if (player->IsGameMaster() && !EnableGamemasters)
     {
@@ -70,7 +70,7 @@ void AccountBound::OnLogin(Player* player)
     }
 }
 
-void AccountBound::OnSave(Player* player)
+void AccountBound::OnPlayerSave(Player* player)
 {
     if (player->IsGameMaster() && !EnableGamemasters)
     {
